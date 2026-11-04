@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FORM — каталог техники и услуг. Выберите устройство или услугу и оставьте заявку.">
+    <meta name="theme-color" content="#ffffff">
+    <title>Каталог — FORM</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+<div id="page-content">
+    <header class="header">
+        <nav class="nav" aria-label="Основное меню">
+            <a href="#catalog" data-view="catalog" aria-current="page">Каталог</a>
+            <a href="#about" data-view="about">О компании</a>
+            <a href="#reviews" data-view="reviews">Отзывы</a>
+            <button class="nav-request" type="button" data-request>Оставьте заявку</button>
+        </nav>
+    </header>
+    <main class="shell">
+        <section id="catalog-view" class="page-view" aria-labelledby="catalog-title">
+            <h1 id="catalog-title" data-reveal>Каталог</h1>
+            <div id="products" class="product-grid" aria-live="polite" aria-busy="true"><p class="catalog-status">Загружаем товары…</p></div>
+            <section class="services-section" aria-labelledby="services-title">
+                <h2 id="services-title" data-reveal>Услуги</h2>
+                <div id="services" class="service-list" aria-live="polite" aria-busy="true"><p class="catalog-status">Загружаем услуги…</p></div>
+            </section>
+            <section class="request-section" data-reveal aria-labelledby="request-title">
+                <div><h2 id="request-title">Поможем с выбором</h2><p>Оставьте контакты — обсудим детали.</p></div>
+                <button class="button" type="button" data-request>Оставьте заявку <span aria-hidden="true">↗</span></button>
+            </section>
+        </section>
+
+        <section id="about-view" class="page-view" aria-labelledby="about-title" hidden>
+            <h1 id="about-title" data-reveal>О компании</h1>
+            <p class="intro-copy" data-reveal>Техника и сервис.<br>Всё, что нужно, в одном месте.</p>
+            <p class="body-copy" data-reveal>Выберите устройство или услугу в каталоге и оставьте заявку. Мы свяжемся с вами, чтобы уточнить наличие и обсудить детали.</p>
+            <button class="button" type="button" data-request data-reveal>Оставьте заявку <span aria-hidden="true">↗</span></button>
+        </section>
+
+        <section id="reviews-view" class="page-view" aria-labelledby="reviews-title" hidden>
+            <h1 id="reviews-title" data-reveal>Отзывы</h1>
+            <div class="empty-reviews" data-reveal><h2>Скоро здесь появятся отзывы</h2><p>Этот раздел ждёт первых историй наших клиентов.</p></div>
+        </section>
+    </main>
+</div>
+<div id="reservation-overlay" class="reservation-overlay" aria-hidden="true" inert>
+    <section class="reservation-modal" role="dialog" aria-modal="true" aria-labelledby="reservation-title" aria-describedby="reservation-description">
+        <button type="button" id="reservation-back" class="modal-close" aria-label="Закрыть форму">✕</button>
+        <h2 id="reservation-title">Оставьте заявку</h2>
+        <p id="reservation-description">Мы свяжемся с вами и уточним детали.</p>
+        <p id="reservation-selection" class="selection-note" hidden></p>
+        <form id="reservation-form" action="send-telegram.php" method="post" autocomplete="on">
+            <input type="hidden" name="item" value="">
+            <label for="reservation-name">Имя</label>
+            <input id="reservation-name" type="text" name="name" autocomplete="section-reservation name" required maxlength="100" placeholder="Ваше имя">
+            <label for="reservation-phone">Телефон</label>
+            <div class="phone-field">
+                <span id="phone-prefix" class="phone-prefix">+7</span>
+                <input id="reservation-phone" type="tel" name="phone" autocomplete="section-reservation tel-national" inputmode="tel" required pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{2}-[0-9]{2}" placeholder="(999) 123-45-67" title="Введите 10 цифр номера после +7" aria-describedby="phone-prefix">
+            </div>
+            <button class="button" type="submit">Отправить заявку <span aria-hidden="true">↗</span></button>
+            <p id="reservation-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+    </section>
+</div>
+</body>
+</html>
