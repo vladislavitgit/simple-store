@@ -82,7 +82,7 @@ function showView() {
         if (link.dataset.view === page) link.setAttribute('aria-current', 'page');
         else link.removeAttribute('aria-current');
     }
-    document.title = `${{ catalog: 'Каталог', about: 'О компании', reviews: 'Отзывы' }[page]} — FORM`;
+    document.title = `${{ catalog: 'Каталог', about: 'О компании', reviews: 'Отзывы' }[page]} — Simple Store`;
     if (!currentView || reducedMotion.matches) {
         activateView(page, id, false);
         return;

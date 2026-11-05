@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FORM — каталог техники и услуг. Выберите устройство или услугу и оставьте заявку.">
     <meta name="theme-color" content="#ffffff">
-    <title>Каталог — FORM</title>
+    <title>Simple Store</title>
+    <script src="theme.js"></script>
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="script.js"></script>
 </head>
 <body>
 <div id="page-content">
     <header class="header">
+        <a class="brand" href="./" aria-label="Simple Store — главная страница">Simple Store</a>
         <nav class="nav" aria-label="Основное меню">
             <a href="#catalog" data-view="catalog" aria-current="page">Каталог</a>
             <a href="#about" data-view="about">О компании</a>
             <a href="#reviews" data-view="reviews">Отзывы</a>
             <button class="nav-request" type="button" data-request>Оставьте заявку</button>
         </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Включить тёмную тему" aria-pressed="false" title="Включить тёмную тему">
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.1A8.7 8.7 0 0 1 10.9 3.4 8.7 8.7 0 1 0 20.6 13.1Z"/></svg>
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
     </header>
     <main class="shell">
         <section id="catalog-view" class="page-view" aria-labelledby="catalog-title">

@@ -112,8 +112,12 @@ export function renderProducts(container, products, images = {}) {
         const badge = createElement('span', `stock-badge${unavailable ? ' is-unavailable' : ''}`, stock);
         const visual = createElement('div', 'product-visual');
         const imageFile = productImageFile(product.name, images);
-        const missingImage = () => visual.replaceChildren(createElement('span', 'image-unavailable', 'Фото скоро появится'));
+        const missingImage = () => {
+            visual.classList.remove('has-image');
+            visual.replaceChildren(createElement('span', 'image-unavailable', 'Фото скоро появится'));
+        };
         if (imageFile) {
+            visual.classList.add('has-image');
             const image = createElement('img', 'product-image');
             image.src = `images/${encodeURIComponent(imageFile)}`;
             image.alt = product.name;
