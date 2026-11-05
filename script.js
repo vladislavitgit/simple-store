@@ -45,17 +45,18 @@ function clearViewTransition() {
     }
 }
 
-function activateView(page, id, animate) {
+function activateView(page, id, animate, prepareReveal = true) {
     if (id !== viewTransitionId) return;
+    const changed = page !== currentView;
     for (const view of views) {
         view.hidden = view.id !== `${page}-view`;
         view.inert = view.hidden;
         view.classList.remove('view-exit', 'view-enter', 'view-ready');
     }
     currentView = page;
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (changed) window.scrollTo({ top: 0, behavior: 'instant' });
     const view = document.getElementById(`${page}-view`);
-    revealElements(view);
+    if (prepareReveal) revealElements(view);
     if (!animate || reducedMotion.matches) return;
     const children = [...view.children].filter(child => !['product-grid', 'services-section', 'request-section'].some(name => child.classList.contains(name)));
     children.forEach((child, index) => {
@@ -105,6 +106,13 @@ for (const link of navLinks) {
     });
 }
 window.addEventListener('hashchange', showView);
+window.addEventListener('resize', () => {
+    if (!requestedView || (currentView === requestedView && !views.some(view => view.classList.contains('view-enter')))) return;
+    const changed = currentView !== requestedView;
+    const id = ++viewTransitionId;
+    clearViewTransition();
+    activateView(requestedView, id, false, changed);
+});
 showView();
 
 function showStatus(container, message, retry) {
