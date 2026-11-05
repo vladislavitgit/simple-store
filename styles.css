@@ -758,32 +758,40 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
         padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
     }
     .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 200px));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
     }
     .product-card {
-        height: 350px;
-        padding: 16px;
-        border-radius: 22px;
+        height: 310px;
+        padding: clamp(10px, 2.5vw, 16px);
+        border-radius: 18px;
     }
     .product-visual {
-        height: 150px;
+        height: clamp(100px, 25vw, 150px);
         margin: 8px 0 12px;
     }
     .product-card h3 {
-        font-size: 17px;
+        font-size: clamp(14px, 3.5vw, 17px);
+        min-height: 2.6em;
         margin-bottom: 6px;
     }
     .product-availability {
         margin-bottom: 14px;
     }
     .product-price {
-        font-size: 18px;
+        font-size: clamp(14px, 3.5vw, 18px);
         white-space: nowrap;
     }
     .product-select {
-        width: 34px;
-        height: 34px;
+        width: 32px;
+        height: 32px;
+    }
+    .product-bottom {
+        gap: 4px;
+    }
+    .stock-badge {
+        gap: 5px;
+        font-size: 10px;
     }
 }
 @media (prefers-reduced-motion: reduce) {
