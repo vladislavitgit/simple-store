@@ -90,7 +90,10 @@ function createElement(tag, className, text) {
 }
 
 function requestButton(item, className) {
-    const button = createElement('button', className, '↗');
+    const button = createElement('button', className);
+    const arrow = createElement('span', 'icon-arrow');
+    arrow.setAttribute('aria-hidden', 'true');
+    button.append(arrow);
     button.type = 'button';
     button.dataset.request = item.name;
     button.setAttribute('aria-label', `Оставить заявку: ${item.name}`);
