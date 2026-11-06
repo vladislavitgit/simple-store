@@ -306,8 +306,8 @@ form .button {
     border: 1px solid var(--panel-border);
     border-radius: clamp(20px, 2vw, 24px);
     background: var(--panel-background);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     box-shadow: var(--panel-shadow);
 }
 .brand, .theme-toggle {
@@ -322,8 +322,7 @@ form .button {
     justify-self: start;
     padding-inline: 14px;
     font-size: clamp(22px, 2.2vw, 26px);
-    font-weight: 600;
-    letter-spacing: -.7px;
+    letter-spacing: -.6px;
     white-space: nowrap;
 }
 .theme-toggle {
@@ -704,6 +703,9 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
     }
 }
 @media (max-width: 600px) {
+    .page-view {
+        padding-top: 19px;
+    }
     .header {
         top: max(6px, env(safe-area-inset-top));
         margin-top: 8px;
@@ -718,17 +720,19 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
     }
     .service-row {
         grid-template-columns: minmax(0, 1fr) 36px;
-        gap: 12px;
-        padding: 22px 0;
+        gap: 8px;
+        padding: 14px 0;
     }
     .service-description {
         grid-column: 1;
     }
     .service-row h3 {
         font-size: 17px;
+        margin-bottom: 4px;
     }
     .service-row p {
         font-size: 13px;
+        line-height: 1.45;
     }
     .service-price {
         grid-column: 1;
@@ -790,13 +794,13 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
         gap: 10px;
     }
     .product-card {
-        height: 310px;
+        height: clamp(250px, 65vw, 280px);
         padding: clamp(10px, 2.5vw, 16px);
         border-radius: 18px;
     }
     .product-visual {
-        height: clamp(100px, 25vw, 150px);
-        margin: 8px 0 12px;
+        height: clamp(90px, 23vw, 110px);
+        margin: 6px 0 10px;
     }
     .product-card h3 {
         font-size: clamp(14px, 3.5vw, 17px);
@@ -804,7 +808,7 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
         margin-bottom: 6px;
     }
     .product-availability {
-        margin-bottom: 14px;
+        margin-bottom: 8px;
     }
     .product-price {
         font-size: clamp(14px, 3.5vw, 18px);
