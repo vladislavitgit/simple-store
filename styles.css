@@ -513,15 +513,24 @@ main {
     margin-top: 24px;
 }
 .company-map {
+    position: relative;
     width: 800px;
     max-width: 100%;
-    height: 500px;
+    height: auto;
+    aspect-ratio: 8 / 5;
     overflow: hidden;
     border-radius: 16px;
 }
+.company-map > :not(script) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
 .company-map iframe {
     display: block;
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
     border: 0;
 }
 .request-section {
