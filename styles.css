@@ -74,7 +74,7 @@ body {
     color: var(--text);
     -webkit-font-smoothing: antialiased;
 }
-body, .brand, .nav, .theme-toggle, .service-list, .service-row, .catalog-status, .selection-note, .phone-field, form input, .modal-close, .phone-prefix, h1, h2, h3, p, .product-price, .service-price {
+body, .brand, .nav, .theme-toggle, .service-list, .service-row, .catalog-status, .info-panel, .selection-note, .phone-field, form input, .modal-close, .phone-prefix, h1, h2, h3, p, .product-price, .service-price {
     transition: color var(--theme-duration) ease, background-color var(--theme-duration) ease,
         border-color var(--theme-duration) ease, box-shadow var(--theme-duration) ease;
 }
@@ -495,15 +495,25 @@ main {
 .catalog-status p {
     margin: 0;
 }
+.request-section, .info-panel {
+    padding: 34px;
+    border-radius: 26px;
+    background: var(--request-background);
+}
+.info-panel {
+    justify-self: start;
+    width: fit-content;
+    max-width: 100%;
+}
+.info-panel > :last-child {
+    margin-bottom: 0;
+}
 .request-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 32px;
     margin-top: 64px;
-    padding: 34px;
-    border-radius: 26px;
-    background: var(--request-background);
 }
 .reservation-overlay {
     position: fixed;
@@ -606,16 +616,16 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
     transform: translateY(30px);
     pointer-events: none;
 }
-.page-view.view-enter > .view-text {
+.page-view.view-enter .view-text {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity var(--text-duration, 650ms) cubic-bezier(.2,.7,.2,1) var(--view-delay, 0ms),
         transform var(--text-duration, 650ms) cubic-bezier(.2,.7,.2,1) var(--view-delay, 0ms);
 }
-.page-view.view-enter:not(.view-ready) > .view-text {
+.page-view.view-enter:not(.view-ready) .view-text {
     transition: none;
 }
-.page-view.view-enter.view-ready > .view-text {
+.page-view.view-enter.view-ready .view-text {
     opacity: 1;
     transform: translateY(0);
 }
@@ -716,13 +726,15 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
         width: 36px;
         height: 36px;
     }
+    .request-section, .info-panel {
+        padding: 25px;
+        border-radius: 22px;
+    }
     .request-section {
         flex-direction: column;
         align-items: stretch;
         gap: 24px;
         margin-top: 44px;
-        padding: 25px;
-        border-radius: 22px;
     }
     .request-section h2 {
         font-size: 23px;

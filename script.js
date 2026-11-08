@@ -18,7 +18,7 @@ const revealObserver = !reducedMotion.matches && 'IntersectionObserver' in windo
 function revealElements(container) {
     if (!revealObserver || reducedMotion.matches) return;
     for (const element of container.querySelectorAll('[data-reveal]')) {
-        if (element.parentElement?.classList.contains('page-view') && !element.classList.contains('request-section')) continue;
+        if ((element.parentElement?.classList.contains('page-view') || element.parentElement?.classList.contains('info-panel')) && !element.classList.contains('request-section')) continue;
         element.classList.add('reveal-pending');
         element.classList.remove('is-visible');
         revealObserver.observe(element);
@@ -58,7 +58,8 @@ function activateView(page, id, animate, prepareReveal = true) {
     const view = document.getElementById(`${page}-view`);
     if (prepareReveal) revealElements(view);
     if (!animate || reducedMotion.matches) return;
-    const children = [...view.children].filter(child => !['product-grid', 'services-section', 'request-section'].some(name => child.classList.contains(name)));
+    const children = [...view.children]
+        .filter(child => !['product-grid', 'services-section', 'request-section'].some(name => child.classList.contains(name)));
     const duration = 900;
     view.style.setProperty('--text-duration', `${duration}ms`);
     const delays = children.map((_, index) => index * 50);
