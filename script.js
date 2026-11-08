@@ -52,7 +52,7 @@ function initializeCompanyMap() {
     const script = document.createElement('script');
     script.async = true;
     script.charset = 'utf-8';
-    script.src = 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A61a0291ba3c11a85eca4ca3b6d78f5a16f99619e5040240d9819cc43792c0459&width=100%25&height=500&lang=ru_RU&scroll=true';
+    script.src = 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A61a0291ba3c11a85eca4ca3b6d78f5a16f99619e5040240d9819cc43792c0459&width=100%25&height=100%25&lang=ru_RU&scroll=true';
     script.addEventListener('error', () => {
         delete container.dataset.initialized;
         script.remove();
