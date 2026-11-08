@@ -254,7 +254,7 @@ form.addEventListener('submit', async event => {
     data.set('phone', `+7 ${phoneInput.value}`);
     nameInput.readOnly = true;
     phoneInput.readOnly = true;
-    status.textContent = 'Заявка отправлена! Мы свяжемся с вами.';
+    status.textContent = 'Демо-версия, бот не подключен';
     status.dataset.state = 'success';
     form.reset();
     selection.hidden = true;
