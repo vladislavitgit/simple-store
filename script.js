@@ -59,15 +59,18 @@ function activateView(page, id, animate, prepareReveal = true) {
     if (prepareReveal) revealElements(view);
     if (!animate || reducedMotion.matches) return;
     const children = [...view.children].filter(child => !['product-grid', 'services-section', 'request-section'].some(name => child.classList.contains(name)));
+    const duration = 900;
+    view.style.setProperty('--text-duration', `${duration}ms`);
+    const delays = children.map((_, index) => index * 200);
     children.forEach((child, index) => {
         child.classList.add('view-text');
-        child.style.setProperty('--view-delay', `${index * 300}ms`);
+        child.style.setProperty('--view-delay', `${delays[index]}ms`);
     });
     view.classList.add('view-enter');
     requestAnimationFrame(() => requestAnimationFrame(() => {
         if (id !== viewTransitionId) return;
         view.classList.add('view-ready');
-        scheduleView(() => view.classList.remove('view-enter', 'view-ready'), (children.length - 1) * 300 + 320, id);
+        scheduleView(() => view.classList.remove('view-enter', 'view-ready'), (delays.at(-1) ?? 0) + duration, id);
     }));
 }
 
@@ -84,7 +87,7 @@ function showView() {
     }
     document.title = `${{ catalog: 'Каталог', about: 'О компании', reviews: 'Отзывы' }[page]} — Simple Store`;
     if (!currentView || reducedMotion.matches) {
-        activateView(page, id, false);
+        activateView(page, id, !currentView);
         return;
     }
     const outgoing = document.getElementById(`${currentView}-view`);
@@ -220,47 +223,14 @@ overlay.addEventListener('keydown', event => {
     }
 });
 
-form.addEventListener('submit', async event => {
+form.addEventListener('submit', event => {
     event.preventDefault();
-    if (submitting) return;
-    if (phoneInput.value) phoneInput.value = formatPhoneNumber(phoneDigits(phoneInput.value));
-    if (!form.reportValidity()) return;
-    submitting = true;
-    submitButton.disabled = true;
-    form.setAttribute('aria-busy', 'true');
-    status.textContent = 'Отправляем заявку…';
-    delete status.dataset.state;
-    const data = new FormData(form);
-    data.set('phone', `+7 ${phoneInput.value}`);
-    nameInput.readOnly = true;
-    phoneInput.readOnly = true;
-    try {
-        const response = await fetch(form.action, { method: 'POST', body: data, signal: AbortSignal.timeout(25_000) });
-        let result;
-        try {
-            result = await response.json();
-        } catch {
-            throw new Error('Не удалось подтвердить отправку. Свяжитесь с нами перед повторной заявкой.');
-        }
-        if (!result || typeof result.ok !== 'boolean') throw new Error('Не удалось подтвердить отправку. Свяжитесь с нами перед повторной заявкой.');
-        if (!response.ok || !result.ok) throw new Error(result.description || 'Не удалось отправить заявку. Попробуйте позже.');
-        status.textContent = 'Заявка отправлена! Мы свяжемся с вами.';
-        status.dataset.state = 'success';
-        form.reset();
-        selection.hidden = true;
-    } catch (error) {
-        console.error('Ошибка отправки:', error);
-        status.textContent = error instanceof TypeError || error.name === 'TimeoutError'
-            ? 'Не удалось подтвердить отправку. Проверьте соединение и свяжитесь с нами перед повторной заявкой.'
-            : error.message;
-        status.dataset.state = 'error';
-    } finally {
-        submitting = false;
-        submitButton.disabled = false;
-        nameInput.readOnly = false;
-        phoneInput.readOnly = false;
-        form.setAttribute('aria-busy', 'false');
+    if (phoneInput.value) {
+        phoneInput.value = formatPhoneNumber(phoneDigits(phoneInput.value));
     }
+    if (!form.reportValidity()) return;
+    status.textContent = 'Демо-версия, бот не подключен.';
+    delete status.dataset.state;
 });
 
 loadCatalog('products');

@@ -59,8 +59,8 @@
 
         <section id="reviews-view" class="page-view" aria-labelledby="reviews-title" hidden>
             <h1 id="reviews-title" data-reveal>Отзывы</h1>
-            <div class="empty-reviews" data-reveal><h2>Скоро здесь появятся отзывы</h2>
-                <p>Этот раздел ждёт первых историй наших клиентов.</p></div>
+            <p class="intro-copy" data-reveal>Скоро здесь появятся отзывы.</p>
+            <p class="body-copy" data-reveal>Этот раздел ждёт первых историй наших клиентов.</p>
         </section>
     </main>
 </div>
@@ -68,7 +68,10 @@
     <section class="reservation-modal" role="dialog" aria-modal="true"
              aria-labelledby="reservation-title" aria-describedby="reservation-description">
         <button type="button" id="reservation-back" class="modal-close"
-                aria-label="Закрыть форму">✕</button>
+                aria-label="Закрыть форму">
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                 aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
         <h2 id="reservation-title">Оставьте заявку</h2>
         <p id="reservation-description">Мы свяжемся с вами и уточним детали.</p>
         <p id="reservation-selection" class="selection-note" hidden></p>
