@@ -27,6 +27,7 @@
     --product-glow-opacity: .35;
     --page-gutter: clamp(16px, 2.5vw, 32px);
     --content-inset: clamp(12px, 2vw, 24px);
+    --title-gap: clamp(26px, 2.8vw, 32px);
     --header-space: 110px;
     --control-size: 48px;
     --theme-duration: 300ms;
@@ -99,7 +100,7 @@ h1 {
     font-size: clamp(32px, 4vw, 46px);
     line-height: 1.2;
     letter-spacing: -.035em;
-    margin: 0 0 clamp(26px, 2.8vw, 32px);
+    margin: 0 0 var(--title-gap);
 }
 h2 {
     font-size: clamp(25px, 2.4vw, 28px);
@@ -474,6 +475,12 @@ main {
 .service-list {
     border-top: 1px solid var(--border);
 }
+.services-section:has(.catalog-status) > h2 {
+    margin-bottom: var(--title-gap);
+}
+.service-list:has(> .catalog-status) {
+    border-top: 0;
+}
 .service-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto 40px;
@@ -829,6 +836,12 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
     .stock-badge {
         gap: 5px;
         font-size: 10px;
+    }
+}
+@media (max-width: 600px), (max-width: 950px) and (max-height: 600px) and (pointer: coarse) {
+    .company-map {
+        aspect-ratio: 12 / 5;
+        max-height: calc(100svh / 3);
     }
 }
 @media (prefers-reduced-motion: reduce) {
