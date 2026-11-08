@@ -27,7 +27,7 @@
     --product-glow-opacity: .35;
     --page-gutter: clamp(16px, 2.5vw, 32px);
     --content-inset: clamp(12px, 2vw, 24px);
-    --title-gap: clamp(26px, 2.8vw, 32px);
+    --section-gap: clamp(26px, 2.8vw, 32px);
     --header-space: 110px;
     --control-size: 48px;
     --theme-duration: 300ms;
@@ -75,7 +75,7 @@ body {
     color: var(--text);
     -webkit-font-smoothing: antialiased;
 }
-body, .brand, .nav, .theme-toggle, .service-list, .service-row, .catalog-status, .info-panel, .selection-note, .phone-field, form input, .modal-close, .phone-prefix, h1, h2, h3, p, .product-price, .service-price {
+body, .brand, .nav, .theme-toggle, .service-list, .service-row, .catalog-status, .selection-note, .phone-field, form input, .modal-close, .phone-prefix, h1, h2, h3, p, .product-price, .service-price {
     transition: color var(--theme-duration) ease, background-color var(--theme-duration) ease,
         border-color var(--theme-duration) ease, box-shadow var(--theme-duration) ease;
 }
@@ -100,7 +100,7 @@ h1 {
     font-size: clamp(32px, 4vw, 46px);
     line-height: 1.2;
     letter-spacing: -.035em;
-    margin: 0 0 var(--title-gap);
+    margin: 0 0 var(--section-gap);
 }
 h2 {
     font-size: clamp(25px, 2.4vw, 28px);
@@ -476,7 +476,7 @@ main {
     border-top: 1px solid var(--border);
 }
 .services-section:has(.catalog-status) > h2 {
-    margin-bottom: var(--title-gap);
+    margin-bottom: var(--section-gap);
 }
 .service-list:has(> .catalog-status) {
     border-top: 0;
@@ -502,22 +502,13 @@ main {
 .catalog-status p {
     margin: 0;
 }
-.request-section, .info-panel {
+.request-section {
     padding: 34px;
     border-radius: 26px;
     background: var(--request-background);
 }
-.info-panel {
-    justify-self: start;
-    width: fit-content;
-    max-width: 100%;
-}
-.info-panel > :last-child {
-    margin-bottom: 0;
-}
-.map-panel {
-    width: 868px;
-    margin-top: 24px;
+.map-section {
+    margin: var(--section-gap) 0 0;
 }
 .company-map {
     position: relative;
@@ -675,7 +666,7 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
         border-color var(--theme-duration) ease, box-shadow var(--theme-duration) ease,
         background-color var(--theme-duration) ease, color var(--theme-duration) ease;
 }
-@media (max-width: 1100px) {
+@media (max-width: 1150px) {
     .service-row {
         gap: 20px;
     }
@@ -695,8 +686,6 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
     .product-availability {
         margin-bottom: 18px;
     }
-}
-@media (max-width: 1150px) {
     :root {
         --header-space: 160px;
     }
@@ -840,8 +829,7 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
 }
 @media (max-width: 600px), (max-width: 950px) and (max-height: 600px) and (pointer: coarse) {
     .company-map {
-        aspect-ratio: 12 / 5;
-        max-height: calc(100svh / 3);
+        max-height: calc(100svh / 2);
     }
 }
 @media (prefers-reduced-motion: reduce) {
