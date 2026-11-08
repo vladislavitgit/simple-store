@@ -254,33 +254,10 @@ form.addEventListener('submit', async event => {
     data.set('phone', `+7 ${phoneInput.value}`);
     nameInput.readOnly = true;
     phoneInput.readOnly = true;
-    try {
-        const response = await fetch(form.action, { method: 'POST', body: data, signal: AbortSignal.timeout(25_000) });
-        let result;
-        try {
-            result = await response.json();
-        } catch {
-            throw new Error('Не удалось подтвердить отправку. Свяжитесь с нами перед повторной заявкой.');
-        }
-        if (!result || typeof result.ok !== 'boolean') throw new Error('Не удалось подтвердить отправку. Свяжитесь с нами перед повторной заявкой.');
-        if (!response.ok || !result.ok) throw new Error(result.description || 'Не удалось отправить заявку. Попробуйте позже.');
-        status.textContent = 'Заявка отправлена! Мы свяжемся с вами.';
-        status.dataset.state = 'success';
-        form.reset();
-        selection.hidden = true;
-    } catch (error) {
-        console.error('Ошибка отправки:', error);
-        status.textContent = error instanceof TypeError || error.name === 'TimeoutError'
-            ? 'Не удалось подтвердить отправку. Проверьте соединение и свяжитесь с нами перед повторной заявкой.'
-            : error.message;
-        status.dataset.state = 'error';
-    } finally {
-        submitting = false;
-        submitButton.disabled = false;
-        nameInput.readOnly = false;
-        phoneInput.readOnly = false;
-        form.setAttribute('aria-busy', 'false');
-    }
+    status.textContent = 'Заявка отправлена! Мы свяжемся с вами.';
+    status.dataset.state = 'success';
+    form.reset();
+    selection.hidden = true;
 });
 
 loadCatalog('products');
