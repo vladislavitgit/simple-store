@@ -59,15 +59,18 @@ function activateView(page, id, animate, prepareReveal = true) {
     if (prepareReveal) revealElements(view);
     if (!animate || reducedMotion.matches) return;
     const children = [...view.children].filter(child => !['product-grid', 'services-section', 'request-section'].some(name => child.classList.contains(name)));
+    const duration = 900;
+    view.style.setProperty('--text-duration', `${duration}ms`);
+    const delays = children.map((_, index) => index * 200);
     children.forEach((child, index) => {
         child.classList.add('view-text');
-        child.style.setProperty('--view-delay', `${index * 300}ms`);
+        child.style.setProperty('--view-delay', `${delays[index]}ms`);
     });
     view.classList.add('view-enter');
     requestAnimationFrame(() => requestAnimationFrame(() => {
         if (id !== viewTransitionId) return;
         view.classList.add('view-ready');
-        scheduleView(() => view.classList.remove('view-enter', 'view-ready'), (children.length - 1) * 300 + 320, id);
+        scheduleView(() => view.classList.remove('view-enter', 'view-ready'), (delays.at(-1) ?? 0) + duration, id);
     }));
 }
 
@@ -84,7 +87,7 @@ function showView() {
     }
     document.title = `${{ catalog: 'Каталог', about: 'О компании', reviews: 'Отзывы' }[page]} — Simple Store`;
     if (!currentView || reducedMotion.matches) {
-        activateView(page, id, false);
+        activateView(page, id, !currentView);
         return;
     }
     const outgoing = document.getElementById(`${currentView}-view`);

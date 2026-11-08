@@ -1,60 +1,60 @@
 :root {
     color-scheme: light;
-    --background: #fff;
-    --surface: #f8f8fa;
+    --background: #ffffff;
+    --surface: #faf9f8;
     --text: #24212a;
     --muted: #716b7a;
-    --border: #ece9f0;
-    --accent: #B257FE;
-    --accent-hover: #c27bff;
-    --accent-text: #8435c5;
-    --accent-soft: #f5ebff;
+    --border: #d8d8ce;
+    --border-hover: #9a9990;
+    --button-background: #ddcfb2;
+    --button-hover: #eaddc4;
+    --button-text: #342e23;
+    --highlight-background: #ece2cb;
+    --highlight-text: #655537;
+    --control-hover: #f1e9da;
+    --nav-text: #595360;
+    --request-background: #f5f0e5;
+    --panel-background: rgb(245 240 229 / .82);
+    --modal-background: rgb(255 255 255 / .96);
+    --panel-shadow: 0 4px 25px rgb(38 15 57 / .035);
+    --highlight-shadow: 0 8px 28px rgb(227 218 192 / .2);
+    --modal-shadow: 0 20px 80px rgb(51 22 71 / .12);
+    --focus-ring: rgb(227 218 192 / .3);
+    --unavailable: #b4afbb;
+    --success: #276a43;
+    --error: #ae3144;
+    --product-glow: #e3dac0;
+    --product-glow-opacity: .35;
     --page-gutter: clamp(16px, 2.5vw, 32px);
     --content-inset: clamp(12px, 2vw, 24px);
     --header-space: 110px;
     --control-size: 48px;
     --theme-duration: 300ms;
-    --panel-background: rgb(255 255 255 / .82);
-    --panel-border: rgb(236 233 240 / .8);
-    --panel-shadow: 0 4px 25px rgb(38 15 57 / .035);
-    --card-border: #f0edf3;
-    --card-hover-border: #dfc1f7;
-    --nav-text: #595360;
-    --action-background: #efe3fb;
-    --action-text: #6e2aa9;
-    --action-hover: #e4c9fb;
-    --request-background: #faf5ff;
-    --modal-background: rgb(255 255 255 / .96);
-    --input-border: #e6e1eb;
-    --autofill-background: #f3e9ff;
-    --success: #276a43;
-    --error: #ae3144;
-    --product-glow: #e3dac0;
-    --product-glow-opacity: .35;
     font-family: Arial, sans-serif;
 }
 :root[data-theme="dark"] {
     color-scheme: dark;
-    --background: #151219;
-    --surface: #211c28;
-    --text: #eee9f5;
-    --muted: #b2a9bc;
-    --border: #38313f;
-    --accent-text: #cda1ff;
-    --accent-soft: #35243f;
-    --panel-background: rgb(31 25 38 / .88);
-    --panel-border: #403449;
+    --background: #070707;
+    --surface: #131311;
+    --text: #d3d2ce;
+    --muted: #a6a6a0;
+    --border: #373735;
+    --border-hover: #b8b094;
+    --button-background: #bfb4a5;
+    --button-hover: #8e8478;
+    --button-text: #070707;
+    --highlight-background: #302c23;
+    --highlight-text: #e3dac0;
+    --control-hover: #454033;
+    --nav-text: #c8c8c8;
+    --request-background: #131311;
+    --panel-background: rgb(19 19 17 / .88);
+    --modal-background: rgb(7 7 7 / .97);
     --panel-shadow: 0 4px 25px rgb(0 0 0 / .12);
-    --card-border: #38313f;
-    --card-hover-border: #78518f;
-    --nav-text: #c3b9ce;
-    --action-background: #35233f;
-    --action-text: #d4b4f4;
-    --action-hover: #4a2c5f;
-    --request-background: #291e32;
-    --modal-background: rgb(31 25 38 / .97);
-    --input-border: #4c4059;
-    --autofill-background: #382544;
+    --highlight-shadow: 0 8px 28px rgb(227 218 192 / .12);
+    --modal-shadow: 0 20px 80px rgb(0 0 0 / .3);
+    --focus-ring: rgb(227 218 192 / .3);
+    --unavailable: #a6a6a0;
     --success: #9cd7b2;
     --error: #ffadb6;
     --product-glow: #e3dac0;
@@ -74,7 +74,7 @@ body {
     color: var(--text);
     -webkit-font-smoothing: antialiased;
 }
-body, .brand, .nav, .theme-toggle, .service-list, .service-row, .catalog-status, .empty-reviews, .selection-note, .phone-field, form input, .modal-close, .phone-prefix, h1, h2, h3, p, .product-price, .service-price {
+body, .brand, .nav, .theme-toggle, .service-list, .service-row, .catalog-status, .selection-note, .phone-field, form input, .modal-close, .phone-prefix, h1, h2, h3, p, .product-price, .service-price {
     transition: color var(--theme-duration) ease, background-color var(--theme-duration) ease,
         border-color var(--theme-duration) ease, box-shadow var(--theme-duration) ease;
 }
@@ -89,7 +89,7 @@ a {
     display: none !important;
 }
 ::selection {
-    background: var(--accent-soft);
+    background: var(--highlight-background);
     color: var(--text);
 }
 h1, h2, h3 {
@@ -167,16 +167,6 @@ h2 {
     color: var(--muted);
     margin: 0 0 32px;
 }
-.empty-reviews h2 {
-    font-size: 22px;
-    margin-bottom: 12px;
-}
-.empty-reviews p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--muted);
-    margin: 0;
-}
 .reservation-modal h2 {
     font-size: 28px;
     margin: 0 0 12px;
@@ -204,11 +194,11 @@ form label {
     color: var(--error);
 }
 .nav-request, .button {
-    background: var(--accent);
-    color: #271035;
+    background: var(--button-background);
+    color: var(--button-text);
 }
 .nav-request:hover, .button:hover {
-    background: var(--accent-hover);
+    background: var(--button-hover);
 }
 button {
     cursor: pointer;
@@ -216,7 +206,7 @@ button {
     -webkit-tap-highlight-color: transparent;
 }
 button:focus-visible, .brand:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--button-background);
     outline-offset: 4px;
 }
 .product-select, .service-select {
@@ -226,21 +216,20 @@ button:focus-visible, .brand:focus-visible {
     width: 40px;
     height: 40px;
     border-radius: 14px;
-    background: var(--action-background);
-    color: var(--action-text);
+    background: var(--highlight-background);
+    color: var(--highlight-text);
     font-size: 22px;
     transition: background-color var(--theme-duration) ease, color var(--theme-duration) ease, transform 180ms;
 }
 .product-select:hover, .service-select:hover {
-    background: var(--action-hover);
+    background: var(--control-hover);
     transform: translateY(-2px);
 }
 .catalog-status button {
     padding: 0;
     margin-top: 12px;
     background: transparent;
-    color: var(--accent-text);
-    text-decoration: underline;
+    color: var(--highlight-text);
 }
 .button {
     display: inline-flex;
@@ -272,14 +261,21 @@ button:focus-visible, .brand:focus-visible {
     place-items: center;
     width: 32px;
     height: 32px;
+    padding: 0;
     border-radius: 50%;
     background: var(--surface);
     color: var(--muted);
-    font-size: 17px;
+    line-height: 1;
+}
+.icon-close {
+    display: block;
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
 }
 .modal-close:hover {
     color: var(--text);
-    background: var(--accent-soft);
+    background: var(--highlight-background);
 }
 form .button {
     width: 100%;
@@ -303,7 +299,7 @@ form .button {
 }
 .brand, .nav, .theme-toggle {
     padding: clamp(5px, .7vw, 8px);
-    border: 1px solid var(--panel-border);
+    border: 1px solid var(--border);
     border-radius: clamp(20px, 2vw, 24px);
     background: var(--panel-background);
     backdrop-filter: blur(10px);
@@ -331,7 +327,7 @@ form .button {
     width: var(--control-size);
 }
 .theme-toggle:hover {
-    background: var(--accent-soft);
+    background: var(--highlight-background);
 }
 .theme-toggle svg {
     position: absolute;
@@ -372,23 +368,8 @@ form .button {
     color: var(--nav-text);
 }
 .nav a:hover, .nav a[aria-current="page"] {
-    color: var(--accent-text);
-    background: var(--accent-soft);
-}
-.nav a::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 8px;
-    width: 22px;
-    height: 2px;
-    border-radius: 8px;
-    background: var(--accent);
-    transform: translateX(-50%) scaleX(0);
-    transition: transform 220ms ease;
-}
-.nav a:hover::after, .nav a[aria-current="page"]::after {
-    transform: translateX(-50%) scaleX(1);
+    color: var(--highlight-text);
+    background: var(--highlight-background);
 }
 main {
     min-height: calc(100svh - var(--header-space));
@@ -425,13 +406,13 @@ main {
     min-width: 0;
     height: 460px;
     padding: 24px;
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--border);
     border-radius: 26px;
     background: var(--surface);
 }
-.product-card:hover {
-    border-color: var(--card-hover-border);
-    box-shadow: 0 12px 35px rgb(123 71 165 / .07);
+.product-card:hover, .product-card:focus-within {
+    border-color: var(--border-hover);
+    box-shadow: var(--highlight-shadow);
 }
 .stock-badge {
     display: inline-flex;
@@ -448,10 +429,10 @@ main {
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: var(--accent);
+    background: var(--button-background);
 }
 .stock-badge.is-unavailable::before {
-    background: #b4afbb;
+    background: var(--unavailable);
 }
 .product-visual {
     position: relative;
@@ -524,13 +505,6 @@ main {
     border-radius: 26px;
     background: var(--request-background);
 }
-.empty-reviews {
-    max-width: 700px;
-    margin-top: 0;
-    padding: 32px;
-    background: var(--surface);
-    border-radius: 24px;
-}
 .reservation-overlay {
     position: fixed;
     inset: 0;
@@ -558,10 +532,10 @@ main {
     max-height: calc(100svh - 40px);
     overflow-y: auto;
     padding: 40px 30px 24px;
-    border: 1px solid var(--panel-border);
+    border: 1px solid var(--border);
     border-radius: 28px;
     background: var(--modal-background);
-    box-shadow: 0 20px 80px rgb(51 22 71 / .12);
+    box-shadow: var(--modal-shadow);
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 440ms cubic-bezier(.4,0,.2,1), transform 440ms cubic-bezier(.4,0,.2,1),
@@ -573,7 +547,7 @@ main {
 }
 .selection-note {
     border-radius: 12px;
-    background: var(--accent-soft);
+    background: var(--highlight-background);
     padding: 12px;
     overflow-wrap: anywhere;
 }
@@ -586,7 +560,7 @@ form input:not([type="hidden"]) {
     width: 100%;
     min-width: 0;
     margin-bottom: 20px;
-    border: 1px solid var(--input-border);
+    border: 1px solid var(--border);
     border-radius: 13px;
     padding: 14px;
     outline: none;
@@ -594,17 +568,15 @@ form input:not([type="hidden"]) {
     background: var(--surface);
 }
 .phone-field {
-    --phone-field-fill: var(--surface);
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    border: 1px solid var(--input-border);
+    border: 1px solid var(--border);
     border-radius: 13px;
-    background: var(--phone-field-fill);
+    background: var(--surface);
 }
 form input:focus, .phone-field:focus-within {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgb(178 87 254 / .1);
+    box-shadow: 0 0 0 3px var(--focus-ring);
 }
 .phone-prefix {
     flex-shrink: 0;
@@ -622,12 +594,12 @@ form .phone-field input:focus {
     box-shadow: none;
 }
 .phone-field:has(input:is(:autofill, :-webkit-autofill)) {
-    --phone-field-fill: var(--autofill-background);
+    background: var(--highlight-background);
 }
 form .phone-field input:is(:autofill, :-webkit-autofill) {
     -webkit-text-fill-color: var(--text);
     caret-color: var(--text);
-    box-shadow: inset 0 0 0 1000px var(--phone-field-fill);
+    box-shadow: inset 0 0 0 1000px var(--highlight-background);
 }
 .page-view.view-exit {
     opacity: 0;
@@ -636,9 +608,12 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
 }
 .page-view.view-enter > .view-text {
     opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 320ms cubic-bezier(.4,0,.2,1) var(--view-delay, 0ms),
-        transform 320ms cubic-bezier(.4,0,.2,1) var(--view-delay, 0ms);
+    transform: translateY(12px);
+    transition: opacity var(--text-duration, 650ms) cubic-bezier(.2,.7,.2,1) var(--view-delay, 0ms),
+        transform var(--text-duration, 650ms) cubic-bezier(.2,.7,.2,1) var(--view-delay, 0ms);
+}
+.page-view.view-enter:not(.view-ready) > .view-text {
+    transition: none;
 }
 .page-view.view-enter.view-ready > .view-text {
     opacity: 1;
@@ -711,10 +686,6 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
         margin-top: 8px;
         gap: 6px;
     }
-    .nav a::after {
-        bottom: 6px;
-        width: 17px;
-    }
     .services-section {
         padding-top: 48px;
     }
@@ -758,9 +729,6 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
     }
     .body-copy {
         font-size: 16px;
-    }
-    .empty-reviews {
-        padding: 24px;
     }
     .reservation-modal {
         width: min(100%, 380px);

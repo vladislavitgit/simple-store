@@ -4,7 +4,7 @@
     function applyTheme(value) {
         const dark = value === 'dark';
         root.dataset.theme = dark ? 'dark' : 'light';
-        document.querySelector('meta[name="theme-color"]').content = dark ? '#151219' : '#ffffff';
+        document.querySelector('meta[name="theme-color"]').content = dark ? '#070707' : '#ffffff';
         const button = document.getElementById('theme-toggle');
         if (!button) return;
         const label = dark ? 'Включить светлую тему' : 'Включить тёмную тему';
