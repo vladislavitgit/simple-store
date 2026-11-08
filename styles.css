@@ -608,7 +608,7 @@ form .phone-field input:is(:autofill, :-webkit-autofill) {
 }
 .page-view.view-enter > .view-text {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(20px);
     transition: opacity var(--text-duration, 650ms) cubic-bezier(.2,.7,.2,1) var(--view-delay, 0ms),
         transform var(--text-duration, 650ms) cubic-bezier(.2,.7,.2,1) var(--view-delay, 0ms);
 }
