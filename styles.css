@@ -508,6 +508,22 @@ main {
 .info-panel > :last-child {
     margin-bottom: 0;
 }
+.map-panel {
+    width: 868px;
+    margin-top: 24px;
+}
+.company-map {
+    width: 800px;
+    max-width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 16px;
+}
+.company-map iframe {
+    display: block;
+    max-width: 100%;
+    border: 0;
+}
 .request-section {
     display: flex;
     align-items: center;

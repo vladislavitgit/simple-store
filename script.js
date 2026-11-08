@@ -45,6 +45,21 @@ function clearViewTransition() {
     }
 }
 
+function initializeCompanyMap() {
+    const container = document.getElementById('company-map');
+    if (container.dataset.initialized) return;
+    container.dataset.initialized = 'true';
+    const script = document.createElement('script');
+    script.async = true;
+    script.charset = 'utf-8';
+    script.src = 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A61a0291ba3c11a85eca4ca3b6d78f5a16f99619e5040240d9819cc43792c0459&width=100%25&height=500&lang=ru_RU&scroll=true';
+    script.addEventListener('error', () => {
+        delete container.dataset.initialized;
+        script.remove();
+    }, { once: true });
+    container.append(script);
+}
+
 function activateView(page, id, animate, prepareReveal = true) {
     if (id !== viewTransitionId) return;
     const changed = page !== currentView;
@@ -56,6 +71,7 @@ function activateView(page, id, animate, prepareReveal = true) {
     currentView = page;
     if (changed) window.scrollTo({ top: 0, behavior: 'instant' });
     const view = document.getElementById(`${page}-view`);
+    if (page === 'about') initializeCompanyMap();
     if (prepareReveal) revealElements(view);
     if (!animate || reducedMotion.matches) return;
     const children = [...view.children]
