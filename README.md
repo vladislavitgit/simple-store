@@ -11,7 +11,6 @@
 <a href="docs/screenshots/l2.png"><img src="docs/screenshots/l2.png" width="400" alt="Светлая тема — скриншот 2"></a>
 <a href="docs/screenshots/l3.png"><img src="docs/screenshots/l3.png" width="400" alt="Светлая тема — скриншот 3"></a>
 <a href="docs/screenshots/l4.png"><img src="docs/screenshots/l4.png" width="400" alt="Светлая тема — скриншот 4"></a>
-<a href="docs/screenshots/l5.png"><img src="docs/screenshots/l5.png" width="400" alt="Светлая тема — скриншот 5"></a>
 </table>
 
 ### Тёмная тема
@@ -21,7 +20,6 @@
 <a href="docs/screenshots/d2.png"><img src="docs/screenshots/d2.png" width="400" alt="Тёмная тема — скриншот 2"></a>
 <a href="docs/screenshots/d3.png"><img src="docs/screenshots/d3.png" width="400" alt="Тёмная тема — скриншот 3"></a>
 <a href="docs/screenshots/d4.png"><img src="docs/screenshots/d4.png" width="400" alt="Тёмная тема — скриншот 4"></a>
-<a href="docs/screenshots/d5.png"><img src="docs/screenshots/d5.png" width="400" alt="Тёмная тема — скриншот 5"></a>
 </table>
 
 ## Функционал
@@ -29,4 +27,5 @@
 - Каталог товаров и услуг, редактируемый через Google Sheets двумя разными листами. Каждая характеристика соответствует своему столбцу в таблице. Изображения берутся из локальной папки `images`. Возможна реализация через таблицу с ссылками на Google Drive. Листы должны оставаться опубликованными в интернете. Сбой одного листа не блокирует другой.
 - Карточки адаптируются к разным разрешениям экрана. Переключение вкладок использует CSS-анимации. При включённой системной настройке уменьшения движения анимации отключены.
 - Форма записи, включающая поля «Имя» и «Телефон», размеченные для автозаполнения. Форма отправляет сообщение в бота с уведомлением о новой записи и информацией по имени, номеру и интересующему товару/услуге.
+- Интерактивная Яндекс карта.
 - Возможность выбора светлой/темной темы.
