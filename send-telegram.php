@@ -18,7 +18,6 @@ if (!is_file(__DIR__ . '/telegram-config.local.php')) {
     respond(500, ['ok' => false, 'description' => 'Отправка заявок временно недоступна.']);
 }
 require __DIR__ . '/telegram-config.local.php';
-$chatId = $chatId ?? '5845669670';
 
 $name = is_string($_POST['name'] ?? null) ? trim($_POST['name']) : '';
 $phone = is_string($_POST['phone'] ?? null) ? trim($_POST['phone']) : '';
@@ -54,13 +53,15 @@ $response = curl_exec($ch);
 if ($response === false) {
     respond(502, [
         'ok' => false,
-        'description' => 'Не удалось подтвердить отправку. Свяжитесь с нами перед повторной отправкой заявки.'
+        'description' => 'Не удалось подтвердить отправку.
+        Свяжитесь с нами перед повторной отправкой заявки.'
     ]);
 }
 $httpStatus = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
 $result = json_decode($response, true);
 if (!is_array($result) || !isset($result['ok']) || !is_bool($result['ok'])) {
-    respond(502, ['ok' => false, 'description' => 'Не удалось подтвердить отправку. Свяжитесь с нами перед повторной отправкой заявки.']);
+    respond(502, ['ok' => false, 'description' => 'Не удалось подтвердить отправку.
+    Свяжитесь с нами перед повторной отправкой заявки.']);
 }
 if ($httpStatus < 200 || $httpStatus >= 300 || $result['ok'] !== true) {
     respond(502, ['ok' => false, 'description' => 'Не удалось отправить заявку. Свяжитесь с нами.']);
