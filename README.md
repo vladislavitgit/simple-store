@@ -12,7 +12,6 @@
     <td><a href="docs/screenshots/l2.png"><img src="docs/screenshots/l2.png" width="400" alt="Светлая тема — скриншот 2"></a></td>
     <td><a href="docs/screenshots/l3.png"><img src="docs/screenshots/l3.png" width="400" alt="Светлая тема — скриншот 3"></a></td>
     <td><a href="docs/screenshots/l4.png"><img src="docs/screenshots/l4.png" width="400" alt="Светлая тема — скриншот 4"></a></td>
-    <td><a href="docs/screenshots/l5.png"><img src="docs/screenshots/l5.png" width="400" alt="Светлая тема — скриншот 5"></a></td>
   </tr>
 </table>
 
@@ -24,7 +23,6 @@
     <td><a href="docs/screenshots/d2.png"><img src="docs/screenshots/d2.png" width="400" alt="Тёмная тема — скриншот 2"></a></td>
     <td><a href="docs/screenshots/d3.png"><img src="docs/screenshots/d3.png" width="400" alt="Тёмная тема — скриншот 3"></a></td>
     <td><a href="docs/screenshots/d4.png"><img src="docs/screenshots/d4.png" width="400" alt="Тёмная тема — скриншот 4"></a></td>
-    <td><a href="docs/screenshots/d5.png"><img src="docs/screenshots/d5.png" width="400" alt="Тёмная тема — скриншот 5"></a></td>
   </tr>
 </table>
 

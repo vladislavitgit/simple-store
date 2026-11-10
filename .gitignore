@@ -4,3 +4,4 @@ telegram-config.local.php
 .env
 .env.*
 !.env.example
+/script.js
